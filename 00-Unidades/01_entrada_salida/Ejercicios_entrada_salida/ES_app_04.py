@@ -35,6 +35,7 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         nombre_usuario = prompt("Datos personales", "Nombre de usuario:")
         self.txt_nombre.delete(0, "end")
+        self.txt_nombre.insert(0, nombre_usuario)
         
     
 if __name__ == "__main__":
