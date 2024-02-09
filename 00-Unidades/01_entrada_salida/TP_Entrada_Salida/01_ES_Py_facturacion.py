@@ -41,7 +41,7 @@ class App(customtkinter.CTk):
         
         self.txt_importe_3 = customtkinter.CTkEntry(master=self)
         self.txt_importe_3.grid(row=2, column=1)
-       
+
         self.btn_total = customtkinter.CTkButton(master=self, text="TOTAL", command=self.btn_total_on_click)
         self.btn_total.grid(row=3, pady=10, columnspan=2, sticky="nsew")
         
@@ -52,13 +52,29 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        importe_1 = float(self.txt_importe_1.get())
+        importe_2 = float(self.txt_importe_2.get())
+        importe_3 = float(self.txt_importe_3.get())
+        importe_total = float(importe_1 + importe_2 + importe_3) * 0.21
+        alert("El Importe total es:", importe_total)
 
     def btn_promedio_on_click(self):
-        pass
+        importe_1 = float(self.txt_importe_1.get())
+        importe_2 = float(self.txt_importe_2.get())
+        importe_3 = float(self.txt_importe_3.get())
+        importe_total = float(importe_1 + importe_2 + importe_3) / 3
+        alert("El Importe total es:", importe_total)
 
     def btn_total_iva_on_click(self):
-        pass      
+        importe_1 = float(self.txt_importe_1.get())
+        importe_2 = float(self.txt_importe_2.get())
+        importe_3 = float(self.txt_importe_3.get())
+        importe_total = importe_1 + importe_2 + importe_3
+        importe_mas_iva = importe_total * 0.21
+        importe_final = importe_total + importe_mas_iva
+
+        
+        alert("El Importe total es:", float(importe_final))
     
 if __name__ == "__main__":
     app = App()
