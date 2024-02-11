@@ -3,7 +3,7 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
-
+import math
 '''
 nombre:
 apellido:
@@ -38,7 +38,7 @@ class App(customtkinter.CTk):
         
         self.txt_kilometros = customtkinter.CTkEntry(master=self)
         self.txt_kilometros.grid(row=1, column=1)
-       
+        
         self.btn_cantidad_camiones = customtkinter.CTkButton(master=self, text="Calcular cantidad de camiones", command=self.btn_cantidad_camiones_on_click)
         self.btn_cantidad_camiones.grid(row=3, pady=10, padx=30 ,columnspan=2, sticky="nsew")
         
@@ -46,10 +46,14 @@ class App(customtkinter.CTk):
         self.btn_tiempo_llegada.grid(row=4, pady=10, padx=30, columnspan=2, sticky="nsew")
     
     def btn_cantidad_camiones_on_click(self):
-        pass
+        toneladas = int(self.txt_toneladas.get())
+        camiones = toneladas / 3500
+        alert("mensaje", math.ceil(camiones))
 
     def btn_tiempo_llegada_on_click(self):
-        pass
+        kilometros = int(self.txt_kilometros.get())
+        horas = kilometros / 90
+        alert("mensaje", round(horas))
     
     
 if __name__ == "__main__":

@@ -43,12 +43,9 @@ class App(customtkinter.CTk):
         numero_a = int(self.txt_operador_a.get())
         numero_b = int(self.txt_operador_b.get())
 
-        #numero_1 = int(numero_a)
-        #numero_2 = int(numero_b)
-
         resto = numero_a % numero_b
 
-        alert("Resto", resto)
+        alert(f"Resto", "El resto es: ", int(resto))
 
 
         
