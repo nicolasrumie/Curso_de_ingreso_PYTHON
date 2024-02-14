@@ -4,7 +4,6 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
 '''
 
 nombre:
@@ -43,7 +42,23 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        
+        mes = self.combobox_mes.get()
+
+        match mes:
+            case "Enero":
+                mensaje = "que comiences bien el año!!!"
+            case "Marzo":
+                mensaje = "a clases!!"
+            case "Julio":
+                mensaje = "se vienen las vacaciones!!"
+            case "Diciembre":
+                mensaje = "Felices fiestas!!!"
+            case _:
+                pass
+
+
+        alert("match", mensaje)
     
     
 if __name__ == "__main__":
