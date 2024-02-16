@@ -5,8 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Nicolás
+apellido: Rumie Vittar
+tutor: Julián
 ---
 TP: IF_Iluminacion
 ---
@@ -43,57 +44,51 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        lampara = 800
         marca = self.combobox_marca.get()
         cantidad = int(self.combobox_cantidad.get())
-        
+        valor_lampara = 800
+        descuento_adicional = 0
+
         if cantidad > 5:
+            descuento = 0.5
+
+        elif cantidad== 5:
+            if marca == "ArgentinaLuz":
+                descuento = 0.40
         
-            precio_final = cantidad * lampara / 2
+            else: 
+                descuento = 0.30
         
-        elif cantidad == 5 and marca == "ArgentinaLuz":
-
-            cantidad_de_lamparas = cantidad * lampara
-            descuento = cantidad_de_lamparas * 40 / 100
-            precio_final = cantidad_de_lamparas - descuento
-
+        elif cantidad == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                descuento = 0.25
+            else:
+                descuento = 0.20
+        
+        elif cantidad == 3:
+            if marca == "ArgentinaLuz":
+                descuento = 0.15
+            elif marca == "FelipeLamparas":
+                descuento = 0.10
+            else:
+                descuento = 0.05
         else:
-            cantidad_de_lamparas = cantidad * lampara
-            descuento = cantidad_de_lamparas * 30 / 100
-            precio_final = cantidad_de_lamparas - descuento
+            descuento = 0
 
-        if cantidad == 4 and marca == "ArgentinaLuz" or "FelipeLamparas":
-            cantidad_de_lamparas = cantidad * lampara
-            descuento = cantidad_de_lamparas * 25 / 100
-            precio_final = cantidad_de_lamparas - descuento
+        total = valor_lampara * cantidad
+        total_final = total - (total * descuento)
 
-        else:
-            cantidad_de_lamparas = cantidad * lampara
-            descuento = cantidad_de_lamparas * 20 / 100
-            precio_final = cantidad_de_lamparas - descuento
-
-        if cantidad == 3 and marca == "ArgentinaLuz":
-            cantidad_de_lamparas = cantidad * lampara
-            descuento = cantidad_de_lamparas * 15 / 100
-            precio_final = cantidad_de_lamparas - descuento
-
-        elif cantidad == 3 and marca =="FelipeLamparas":
-            cantidad_de_lamparas = cantidad * lampara
-            descuento = cantidad_de_lamparas * 10 / 100
-            precio_final = cantidad_de_lamparas - descuento
+        if total_final > 4000:
+            descuento_adicional = 0.05
         
         else:
-            cantidad_de_lamparas = cantidad * lampara
-            descuento = cantidad_de_lamparas * 5 / 100
-            precio_final = cantidad_de_lamparas - descuento
+            descuento_adicional = 0
 
-        if precio_final > 4000:
-            precio_descontado_mayor = precio_final * 5 / 100
-            precio_final = precio_final - precio_final
+        total_final = total_final - (total_final * descuento_adicional)
 
-        
+        alert("mensaje", total_final)
 
-        alert("mensaje", precio_final)
+
 
 if __name__ == "__main__":
     app = App()
