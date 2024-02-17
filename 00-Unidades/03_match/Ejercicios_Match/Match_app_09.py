@@ -57,7 +57,38 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        estaciones = self.combobox_estaciones.get()
+        destino = self.combobox_destino.get()
+        valor_viaje = 15000
+        match estaciones:
+            case "Invierno":
+                match destino:
+                    case "Bariloche":
+                        valor_total = valor_viaje * 1.20
+                    case "Cataratas" | "Cordoba":
+                        valor_total = valor_viaje - (valor_viaje * 0.10)
+                    case "Mar del plata":
+                        valor_total = valor_viaje - (valor_viaje * 0.20)
+                        
+            case "Verano":
+                match destino:
+                    case "Bariloche":
+                        valor_total = valor_viaje - (valor_viaje * 0.20)
+                    case "Cataratas" | "Cordoba":
+                        valor_total = valor_viaje * 1.10
+                    case "Mar del plata":
+                        valor_total = valor_viaje * 1.20
+
+            case "Primavera" | "Otoño":
+                match destino:
+                    #case "Cataratas" | "Bariloche" | "Mar del plata":
+                        #valor_total = valor_viaje * 1.10
+                    case "Cordoba":
+                        valor_total = valor_viaje
+                    case _:
+                        valor_total = valor_viaje * 1.10
+        alert("Valor del viaje", valor_total)
+
             
     
 if __name__ == "__main__":

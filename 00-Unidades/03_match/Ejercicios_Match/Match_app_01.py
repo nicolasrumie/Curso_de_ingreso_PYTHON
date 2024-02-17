@@ -6,8 +6,9 @@ import customtkinter
 
 '''
 
-nombre:
-apellido:
+nombre: Nicolás
+apellido: Rumie Vittar
+tutor: Julián
 ---
 Ejercicio: Match_01
 ---
@@ -55,7 +56,7 @@ class App(customtkinter.CTk):
             case "Diciembre":
                 mensaje = "Felices fiestas!!!"
             case _:
-                pass
+                mensaje = ""
 
 
         alert("match", mensaje)

@@ -29,7 +29,11 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
+        contador_pares = 0
+        while contador_pares < 10:
+            print(contador_pares + 2)
+            contador_pares += 2
+
     
     
 if __name__ == "__main__":

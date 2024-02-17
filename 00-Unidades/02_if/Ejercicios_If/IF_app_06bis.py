@@ -7,6 +7,7 @@ import customtkinter
 '''
 nombre: Nicolás
 apellido: Rumie Vittar
+tutor: Julián
 ---
 Ejercicio: if_06bis
 ---

@@ -6,8 +6,9 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Nicolás
+apellido: Rumie Vittar
+tutor: Julián
 ---
 Ejercicio: Match_04
 ---
@@ -51,6 +52,7 @@ class App(customtkinter.CTk):
                 mensaje = "Sí, tiene 31 días"
 
         alert("mensaje", mensaje)
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
