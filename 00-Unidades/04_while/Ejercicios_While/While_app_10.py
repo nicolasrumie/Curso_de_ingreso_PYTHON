@@ -21,6 +21,10 @@ Luego calcular:
     E. Cantidad de ceros
     F. Diferencia entre la cantidad de los números positivos ingresados y los negativos
 
+    G. Minimo numero y que sea positivo
+    H. Maximo numero y que sea negativo
+    I. Promedio de los negativos y Promedio de los positivos
+    J. Cantidad de numeros ingresados
 Informar los resultados mediante alert()
 
 '''
@@ -37,7 +41,31 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        acumulador_suma_negativos = 0
+        acumulador_suma_positivos = 0
+        contador_positivos = 0
+        contador_negativos = 0
+        contador_ceros = 0
+
+        while True:
+            numero = prompt("X", "Ingrese un número: ")
+
+            if numero == None or numero == "":
+                break
+
+            numero = int(numero)
+
+            if numero < 0:
+                acumulador_suma_negativos += numero
+                contador_negativos += 1
+            elif numero > 0:
+                acumulador_suma_positivos += numero
+                contador_positivos += 1
+            elif numero == 0:
+                contador_ceros += 1
+                
+        alert("X",f"La suma de los negativos es: {acumulador_suma_negativos}, la suma de los positivos es : {acumulador_suma_positivos}, cantidad de positivos: {contador_positivos}, cantidad de negativos: {contador_negativos}, cantidad de ceros: {contador_ceros}")
+            
 
     
 if __name__ == "__main__":

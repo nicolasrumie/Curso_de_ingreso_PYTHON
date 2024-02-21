@@ -6,8 +6,9 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Nicolás
+apellido: Rumie Vittar
+tutor: Julián
 ---
 Ejercicio: Match_07
 ---

@@ -30,11 +30,14 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_numero_on_click(self):
-        numero = 1
-        while numero in range(0, 9):
-            numero_elegido = int(prompt("Ingrese un número", "Numero:"))
-            print(numero_elegido)
-    
+        numero = prompt("Ingrese un numero", "Ingrese un numero entre 0 y 9: ")
+        numero = int(numero)
+
+        while numero < 0 or numero > 9:
+            numero = prompt("Ingrese un numero", "Reingrese un numero entre 0 y 9: ")
+            numero = int(numero)
+
+            
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

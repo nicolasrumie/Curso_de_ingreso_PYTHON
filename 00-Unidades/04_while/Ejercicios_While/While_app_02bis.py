@@ -30,9 +30,16 @@ class App(customtkinter.CTk):
     
     def btn_mostrar_iteracion_on_click(self):
         contador_pares = 0
-        while contador_pares < 10:
-            print(contador_pares + 2)
-            contador_pares += 2
+        suma_pares = 0
+
+        while contador_pares < 11:
+            if contador_pares % 2 == 0:
+                suma_pares = suma_pares + contador_pares
+
+            contador_pares += 1
+
+        alert("mensaje", suma_pares)
+            
 
     
     

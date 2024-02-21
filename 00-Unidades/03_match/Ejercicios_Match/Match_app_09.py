@@ -6,8 +6,9 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Nicolás
+apellido: Rumie Vittar
+tutor: Julián
 ---
 Ejercicio: Match_09
 ---
@@ -81,8 +82,6 @@ class App(customtkinter.CTk):
 
             case "Primavera" | "Otoño":
                 match destino:
-                    #case "Cataratas" | "Bariloche" | "Mar del plata":
-                        #valor_total = valor_viaje * 1.10
                     case "Cordoba":
                         valor_total = valor_viaje
                     case _:
